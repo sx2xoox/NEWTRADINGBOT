@@ -1,0 +1,10 @@
+# 리스크 한도 (6단계 리스크 엔진에서 사용)
+max_position_weight: 0.15        # 종목당 최대 비중 (총자산 대비)
+max_overseas_weight: 0.50        # 해외 자산 비중 상한
+daily_loss_limit: 0.02           # 1일 손실 한도 (전일 종가 기준 총자산 대비)
+total_loss_limit: 0.10           # 총 손실 한도 (기준 자산 대비)
+# 한도 도달 시 동작:
+#   block_new_entries = 신규 매수만 차단 (기존 포지션 강제 청산 없음, 위험 축소 매도는 항상 허용)
+#   flatten           = 전 포지션 청산 (기본값 아님)
+on_limit_action: block_new_entries
+# 1일 한도: 다음 거래일 자동 해제 / 총 한도: 수동 해제 명령 필요

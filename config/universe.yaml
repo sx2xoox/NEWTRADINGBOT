@@ -1,0 +1,14 @@
+# LLM 분석 대상 기본 범위 = 보유 종목 + 관심 종목
+# market: KOSPI | KOSDAQ | NYSE | NASDAQ | AMEX
+watchlist:
+  - {symbol: "005930", market: KOSPI, name: 삼성전자}
+  - {symbol: "000660", market: KOSPI, name: SK하이닉스}
+  - {symbol: "373220", market: KOSPI, name: LG에너지솔루션}
+  - {symbol: NVDA, market: NASDAQ, name: NVIDIA}
+  - {symbol: MU, market: NASDAQ, name: Micron}
+  - {symbol: TSLA, market: NASDAQ, name: Tesla}
+# 보유 종목은 6단계부터 모의투자 계좌 잔고에서 자동으로 합쳐집니다.
+llm_scope:
+  include_holdings: true
+  include_watchlist: true
+  extra_symbols: []     # 범위 확장 시 여기에 추가

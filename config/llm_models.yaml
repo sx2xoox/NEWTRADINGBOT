@@ -1,0 +1,21 @@
+# 작업 등급별 모델 라우팅. 예산 90% 이상 사용 시 모든 등급이 'cheap' 모델로 강등됩니다.
+tiers:
+  cheap:            # 대량 요약·분류 (공시 요약, 뉴스 분류)
+    model: claude-haiku-5-5
+    effort: low
+  standard:         # 아침 브리핑, 중간 난이도 분석
+    model: claude-sonnet-5-5
+    effort: medium
+  deep:             # 심층 분석, 반대 논리(Devil's Advocate)
+    model: claude-opus-5-5
+    effort: high
+
+# 기능(feature) → 등급 매핑. 여기에 없는 기능은 cheap 사용.
+features:
+  disclosure_summary: cheap
+  news_classify: cheap
+  morning_briefing: standard
+  nl_strategy: standard
+  devils_advocate: deep
+  deep_analysis: deep
+  valuechain_suggest: standard

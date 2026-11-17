@@ -1,0 +1,39 @@
+# Anthropic 모델 단가 (USD / 1M tokens)
+# 출처: https://platform.claude.com/docs/en/about-claude/pricing  (확인일: 2026-11-17)
+# 가격이 바뀌면 이 파일만 수정하세요. 코드에 단가를 하드코딩하지 않습니다.
+source: "https://platform.claude.com/docs/en/about-claude/pricing"
+verified_on: "2026-11-17"
+batch_discount: 0.5          # Batch API: 입력·출력·캐시 모두 50% (다른 배율과 곱해짐)
+
+models:
+  claude-opus-5-5:
+    tiers:
+      - max_prompt_tokens: null          # null = 상한 없음
+        input: 4.00
+        cache_write_5m: 5.00
+        cache_write_1h: 8.00
+        cache_read: 0.20
+        output: 20.00
+  claude-sonnet-5-5:
+    tiers:
+      - max_prompt_tokens: null
+        input: 2.00
+        cache_write_5m: 2.50
+        cache_write_1h: 4.00
+        cache_read: 0.10
+        output: 10.00
+  claude-haiku-5-5:
+    # 프롬프트(캐시 읽기·쓰기 포함 전체 입력)가 100,000 토큰을 넘으면 요청 전체가 상위 단가
+    tiers:
+      - max_prompt_tokens: 100000
+        input: 0.10
+        cache_write_5m: 0.125
+        cache_write_1h: 0.20
+        cache_read: 0.01
+        output: 0.50
+      - max_prompt_tokens: null
+        input: 0.50
+        cache_write_5m: 0.625
+        cache_write_1h: 1.00
+        cache_read: 0.05
+        output: 2.50

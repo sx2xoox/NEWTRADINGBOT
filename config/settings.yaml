@@ -1,0 +1,13 @@
+timezone: Asia/Seoul
+llm:
+  warn_ratio: 0.70        # 월 예산 70% 도달 시 디스코드 경고
+  degrade_ratio: 0.90     # 90% 도달 시 저가 모델만 사용
+  # 100% 도달 시 LLM 기능 중단 (매매·리스크 엔진은 계속 동작)
+kis:
+  # KIS 호출 간 최소 간격(초). 공식 샘플은 0.1초, 모의투자는 더 엄격할 수 있어 보수적으로 설정.
+  paper_min_interval_sec: 0.5
+  real_min_interval_sec: 0.1
+sec:
+  min_interval_sec: 0.15   # SEC 공정 접근 정책: 초당 10건 이하
+dart:
+  min_interval_sec: 0.2
